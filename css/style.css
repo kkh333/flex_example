@@ -1,0 +1,134 @@
+/* 기본 노말라이징 */
+* {margin: 0; padding: 0; list-style: none; text-decoration: none; color: inherit;}
+
+/* ---------------------------------------------------------------------------------- */
+
+/* 헤더 */
+header {
+    width: 100%;
+    height: 80px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #eee;
+}
+header .con {
+    width: 100%;
+    height: 100%;
+
+    /* 최대 넓이 1280px로 잡아주고 가운데로 넓이가 1280px밑으로 떨어지면 좌우 여백 40px남기고 줄어듬 */
+    max-width: 1280px;
+    margin:  0 auto;
+    box-sizing: border-box;
+    padding: 0 40px;
+
+    display: flex;
+    align-items: center;
+
+    /* 자식 요소들을 width안에서 양 끝에 배치  */
+    justify-content: space-between;
+}
+header .con .left-box {
+    display: flex;
+    align-items: center;
+
+    /* 로고와 메인메뉴박스 사이 여백 */
+    gap: 60px;
+}
+header .con .left-box .logo-box {
+    font-size: 28px;
+    font-weight: bold;
+}
+header .con .left-box .main-menu-box {
+    display: flex;
+    align-items: center;
+
+    /* 메인메뉴 메뉴별로 여백 */
+    gap: 24px;
+}
+header .con .left-box .main-menu-box > li > a {
+    font-size: 18px;
+    color: #555;
+}
+header .con .right-box {
+    display: flex;
+    align-items: center;
+
+    /* 서브메뉴박스와 햅버거버튼 사이 여백 */
+    gap: 24px;
+}
+header .con .right-box .sub-menu-box {
+    display: flex;
+    align-items: center;
+
+    /* 메인메뉴 메뉴별로 여백 */
+    gap: 12px;
+}
+header .con .right-box .sub-menu-box > li > a {
+    font-size: 14px;
+    color: #999;
+}
+header .con .right-box .ham-btn {
+    width: 36px;
+
+    /* button태그에 기본 속성 제거 */
+    display: block;
+    background: inherit;
+    border: none;
+    cursor: pointer;
+}
+header .con .right-box .ham-btn > img {
+    /* img태그를 사용할때는 항상 img위에 div같은 걸로 한 번 감싸서 아래 속성 주기 */
+    /* 그래야 이미지가 유연하게 잘보임 */
+    width: 100%;
+    display: block;
+}
+
+/* ---------------------------------------------------------------------------------- */
+
+/* 리스트 영역 */
+.list-area {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 120px 0;
+}
+.list-area .con {
+    /* 최대 넓이 1280px로 잡아주고 가운데로 넓이가 1280px밑으로 떨어지면 좌우 여백 40px남기고 줄어듬 */
+    max-width: 1280px;
+    margin:  0 auto;
+    box-sizing: border-box;
+    padding: 0 40px;
+    display: flex;
+
+    /* 기존 flex는 가로정렬인데 이걸 적용하면 세로정렬이됌 */
+    flex-direction: column;
+    /* 위 코드를 적용했기때문에 여백이 세로로 적용됌 */
+    gap: 80px;
+}
+
+.list-area .con .list-box {
+    width: 100%;
+    /* 가로, 세로 여백 20px씩 */
+    gap: 20px;
+
+    /* 가로 여백만 */
+    column-gap: 20px;
+
+    /* 세로 여백만 */
+    row-gap: 28px;
+
+    display: flex;
+
+    /* 한 줄에 3개씩 배치하고 싶은데 리스트가 3개 이상이면 이 코드를 줘야 4번째 리스트부터 아래로 떨어짐 */
+    flex-wrap: wrap;
+}
+.list-area .con .list-box > li {
+    /* 한 줄에 3개씩 배치하고 싶으니 하나당 33.3333%에서 좌우 여백이 20px씩 2개가 있으니 20px * 2 / 3 = 13.3333px 빼주기 */
+    /* calc()는 계산이 필요할 때 사용 */
+    width: calc(33.3333% - 13.3333px);
+    height: 200px;
+}
+.list-area .con .list-box-1 > li {
+    background: blue;
+}
+.list-area .con .list-box-2 > li {
+    background: red;
+}
